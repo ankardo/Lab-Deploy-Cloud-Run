@@ -1,0 +1,29 @@
+# Go-related files
+/bin/
+/pkg/
+/vendor/
+
+# Compiled files
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of the go command
+*.out
+
+# Logs
+*.log
+
+# Environment variables file
+.env
+
+# Temporary files and directories
+*.tmp
+*.swp
+*.swo
+
+# Docker-related files
+docker-compose.override.yml
+
