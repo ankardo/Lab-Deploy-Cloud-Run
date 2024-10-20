@@ -59,3 +59,4 @@ Desenvolver um sistema em Go que receba um CEP, identifique a cidade e retorne o
 - Utilize **docker/docker-compose** para que possamos realizar os testes da sua aplicação.
 - Deploy realizado no **Google Cloud Run (free tier)** e endereço ativo para ser acessado.
  Lab-Deploy-Cloud-Run
+O deploy foi realizado e pode ser testado com a seguinte URL: <https://app-image-909507782704.us-central1.run.app/weather?zipcode=01153000>

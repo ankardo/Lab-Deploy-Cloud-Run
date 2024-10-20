@@ -1,10 +1,18 @@
-FROM golang:1.23.2 AS builder
-WORKDIR /app
+FROM golang:1.23.2 AS golang
+ENV CGO_ENABLED=0
+ENV GOOS=linux
+ENV GOARCH=amd64
+
+FROM golang AS builder
+WORKDIR /build
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main cmd/server/main.go
+RUN  go build -o main cmd/server/main.go && \
+  chmod +x main
 
 FROM scratch
 WORKDIR /app
-COPY --from=builder /app/main /app/main
+COPY --from=builder /build/main /app/main
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY .env ./
 EXPOSE 8000
 CMD ["/app/main"]
